@@ -1,10 +1,11 @@
 import express from 'express';
 
-const router = express.Router();
+export default () => {
+  const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
+  router.get('/', (req, res) => {
+    res.render('index');
+  });
 
-export default router;
+  return router;
+};
