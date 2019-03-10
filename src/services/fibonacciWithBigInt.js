@@ -1,6 +1,9 @@
-const sequence = [0, 1];
+if (!BigInt.toJSON) {
+  BigInt.prototype.toJSON = function() { return this.toString(); };
+}
 
-// n < 1477 due to integer overflow
+const sequence = [0, 1].map(BigInt);
+
 export default n => {
   if (n < 0) throw new Error('Invalid input');
 
@@ -11,7 +14,7 @@ export default n => {
   }
 
   for (let i = sequence.length; i < num; i++){
-    sequence.push(sequence[i - 2] + sequence[i -1])
+    sequence.push(BigInt(sequence[i - 2] + sequence[i -1]))
   }
 
   return sequence;

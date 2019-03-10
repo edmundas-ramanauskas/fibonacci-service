@@ -1,5 +1,5 @@
 import express from 'express';
-import fibonacci from '../services/fibonacci';
+import { fibonacci } from '../services';
 
 export default () => {
   const router = express.Router();
