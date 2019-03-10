@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  webapp:
+    build: .
+    command: npm start
+    environment:
+      PORT: 3000
+    ports:
+      - "8080:3000"
+    volumes:
+      - ./:/usr/src/app
